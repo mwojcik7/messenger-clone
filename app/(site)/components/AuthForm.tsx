@@ -1,12 +1,13 @@
 'use client';
 
-import { useCallback, useState } from "react";
-import { useForm, FieldValues, SubmitHandler } from "react-hook-form";
-import { BsGithub, BsGoogle } from "react-icons/bs";
+import { useCallback, useState } from 'react';
+import { useForm, FieldValues, SubmitHandler } from 'react-hook-form';
+import { BsGithub, BsGoogle } from 'react-icons/bs';
+import axios from 'axios';
 
-import Input from "@/app/components/Input/Input";
-import Button from "@/app/components/Button";
-import AuthSocialButton from "./AuthSocialButton";
+import Input from '@/app/components/Input/Input';
+import Button from '@/app/components/Button';
+import AuthSocialButton from './AuthSocialButton';
 
 type Variant = 'LOGIN' | 'REGISTER';
 
@@ -36,11 +37,11 @@ const AuthForm = () => {
     }
   });
 
-  const onSubmit: SubmitHandler<FieldValues> = () => {
+  const onSubmit: SubmitHandler<FieldValues> = (data) => {
     setIsLoading(true);
 
     if (variant === 'REGISTER') {
-
+      axios.post('/api/register', data);
     }
     else if (variant === 'LOGIN') {}
   };
