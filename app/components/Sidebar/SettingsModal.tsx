@@ -8,7 +8,7 @@ import axios from 'axios';
 import { User } from '@prisma/client';
 
 import Modal from '../Modal';
-import Input from '../Input/Input';
+import Input from '../inputs/Input';
 import Image from 'next/image';
 import { CldUploadButton } from 'next-cloudinary';
 import Button from '../Button';
